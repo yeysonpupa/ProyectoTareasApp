@@ -1,27 +1,38 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { IoIosArrowBack } from 'react-icons/io';
-import { v4 as uuid } from 'uuid';
+import { addDoc, collection } from 'firebase/firestore';
+import { db, currentUser } from '../Firebase/firebase'; 
 import useCreateDate from './useCreateDate';
 import './CreateEdit.css';
 
-const CreateTarea = ({setTareas}) => {
-  const[title, setTitle] = useState ('');
-  const[details, setDetails] = useState ('');
+const CreateTarea = ({ setTareas }) => {
+  const [title, setTitle] = useState('');
+  const [details, setDetails] = useState('');
   const date = useCreateDate();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(title && details) {
-      const tarea = {id: uuid(), title, details, date}
+    if (title && details) {
+      try {
+        const tareaRef = await addDoc(collection(db, 'tareas'), {
+          userId: currentUser.uid,
+          title,
+          details,
+          date,
+        });
 
-      setTareas(prevtareas => [tarea, ...prevtareas])
+        const tarea = { id: tareaRef.id, title, details, date };
+        setTareas((prevTareas) => [tarea, ...prevTareas]);
 
-      navigate('/');
+        navigate('/');
+      } catch (error) {
+        console.error('Error al crear la tarea:', error.message);
+      }
     }
-  }
+  };
 
   return (
     <section>
@@ -35,11 +46,23 @@ const CreateTarea = ({setTareas}) => {
       </header>
 
       <form className="create-tarea__form" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Título" value={title} onChange={(e) => setTitle(e.target.value)} autoFocus/>
-        <textarea rows="28" placeholder="Detalles de la tarea..." value={details} onChange={(e) => setDetails(e.target.value)}></textarea>
+        <input
+          type="text"
+          placeholder="Título"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          autoFocus
+        />
+        <textarea
+          rows="28"
+          placeholder="Detalles de la tarea..."
+          value={details}
+          onChange={(e) => setDetails(e.target.value)}
+        ></textarea>
       </form>
     </section>
-  )
-}
+  );
+};
 
 export default CreateTarea;
+

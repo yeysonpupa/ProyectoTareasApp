@@ -15,7 +15,11 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+let currentUser = null;
+
 onAuthStateChanged(auth, (user) => {
+  currentUser = user;
+
   if (user) {
     console.log('Usuario autenticado:', user);
   } else {
@@ -23,4 +27,4 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-export { auth, db, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword };
+export { auth, db, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, currentUser };
