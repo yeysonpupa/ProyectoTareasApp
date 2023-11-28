@@ -32,6 +32,12 @@
 
 ![Alt text](BuscarTarea.png)
 
+### Firestore ###
+
+Se hizo uso de Firestore para crear una colección de documentos que almacenara los datos de las tareas por usuario.
+
+![Alt text](Firestore.png)
+
 ### Responsive Design ###
 
 ![Alt text](Responsive.png)
