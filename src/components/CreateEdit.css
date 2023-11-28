@@ -1,0 +1,53 @@
+.create-tarea__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create-tarea__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.create-tarea__form input, .create-tarea__form textarea {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border-radius: 0.2rem;
+    font-size: 1.1rem;
+    color: var(--color-white);
+}
+
+.create-tarea__form input {
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+    #app {
+        width: 100vw;
+        height: 100vh;
+        padding: 2rem 1rem;
+    }
+
+    .tareas__header {
+        width: 100%;
+        padding: 2rem 1rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .tareas__container {
+        gap: 1rem;
+        margin-top: 3rem;
+    }
+
+    .btn.add__btn {
+        padding: 1.5rem;
+        font-size: 1.5rem;
+        bottom: 6%;
+        right: 2rem;
+    }
+}
