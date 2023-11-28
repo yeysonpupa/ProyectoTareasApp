@@ -10,7 +10,7 @@ import SignUp from './components/SignUp';
 
 const App = () => {
   const [user, setUser] = useState(null); 
-  const [tareas, settareas] = useState(JSON.parse(localStorage.getItem('tareas')) || []);
+  const [tareas, setTareas] = useState(JSON.parse(localStorage.getItem('tareas')) || []);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -34,8 +34,8 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={user ? <Tareas tareas={tareas} /> : <SignIn />} />
-          <Route path="/create-tarea" element={user ? <CreateTarea settareas={settareas} /> : <SignIn />} />
-          <Route path="/edit-tarea/:id" element={user ? <EditTarea tareas={tareas} settareas={settareas} /> : <SignIn />} />
+          <Route path="/create-tarea" element={user ? <CreateTarea setTareas={setTareas} /> : <SignIn />} />
+          <Route path="/edit-tarea/:id" element={user ? <EditTarea tareas={tareas} setTareas={setTareas} /> : <SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
         </Routes>
@@ -45,3 +45,4 @@ const App = () => {
 };
 
 export default App;
+

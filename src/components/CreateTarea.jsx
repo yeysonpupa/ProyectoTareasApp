@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid';
 import useCreateDate from './useCreateDate';
 import './CreateEdit.css';
 
-const Createtarea = ({settareas}) => {
+const CreateTarea = ({setTareas}) => {
   const[title, setTitle] = useState ('');
   const[details, setDetails] = useState ('');
   const date = useCreateDate();
@@ -17,7 +17,7 @@ const Createtarea = ({settareas}) => {
     if(title && details) {
       const tarea = {id: uuid(), title, details, date}
 
-      settareas(prevtareas => [tarea, ...prevtareas])
+      setTareas(prevtareas => [tarea, ...prevtareas])
 
       navigate('/');
     }
@@ -42,4 +42,4 @@ const Createtarea = ({settareas}) => {
   )
 }
 
-export default Createtarea
+export default CreateTarea;

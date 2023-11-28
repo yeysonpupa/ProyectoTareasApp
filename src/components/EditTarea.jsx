@@ -4,7 +4,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import useCreateDate from './useCreateDate';
 
-const Edittarea = ({ tareas, settareas }) => {
+const EditTarea = ({ tareas, setTareas }) => {
   const {id} = useParams();
   const tarea = tareas.find((item) => item.id === id);
   const [title, setTitle] = useState(tarea.title);
@@ -25,17 +25,17 @@ const Edittarea = ({ tareas, settareas }) => {
         return item;
       })
 
-      settareas(newtareas);
+      setTareas(newtareas);
     }
 
     navigate('/');
   }
 
   const handleDelete = () => {
-    if(window.confirm('Are you sure you want to delete?')) {
+    if(window.confirm('¿Estás seguro de eliminar esta tarea?')) {
       const newtareas = tareas.filter(item => item.id !== id);
 
-      settareas(newtareas);
+      setTareas(newtareas);
       navigate('/');
     }
   }
@@ -62,4 +62,4 @@ const Edittarea = ({ tareas, settareas }) => {
   )
 }
 
-export default Edittarea
+export default EditTarea;
