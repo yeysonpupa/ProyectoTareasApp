@@ -20,14 +20,18 @@
 
 ![Alt text](Home.png)
 
-### Crear Nota ###
+### Crear Tarea ###
 
 ![Alt text](CrearTarea.png)
 
-### Editar/Eliminar Nota ###
+### Editar/Eliminar Tarea ###
 
 ![Alt text](EditarEliminarTarea.png)
 
-### Buscar Notas ###
+### Buscar Tareas ###
 
 ![Alt text](BuscarTarea.png)
+
+### Responsive Design ###
+
+![Alt text](Responsive.png)
