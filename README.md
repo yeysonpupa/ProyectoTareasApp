@@ -3,3 +3,31 @@
 * Estudiante 1: Pablo Andrés Lugo Ramírez - Código: 0000219665
 * Estudiante 2: Daniela Alejandra Puerto Díaz - Código: 0000220606
 * Estudiante 3: Yeyson Esteban Pulido Parra - Código: 0000222746
+
+### Registro ###
+
+![Alt text](Registro.png)
+
+### Inicio Sesión ###
+
+![Alt text](InicioSesion.png)
+
+### Usuarios en Firebase ###
+
+![Alt text](UsuariosFirebase.png)
+
+### Home ###
+
+![Alt text](Home.png)
+
+### Crear Nota ###
+
+![Alt text](CrearTarea.png)
+
+### Editar/Eliminar Nota ###
+
+![Alt text](EditarEliminarTarea.png)
+
+### Buscar Notas ###
+
+![Alt text](BuscarTarea.png)
